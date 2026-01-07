@@ -46,6 +46,7 @@ interface GanttItem {
   startDate: Date
   endDate: Date
   priority: "high" | "medium" | "low"
+  timeline: string
 }
 
 export default function Home() {
@@ -936,7 +937,8 @@ export default function Home() {
                 action: item.action,
                 startDate,
                 endDate,
-                priority: item.priority
+                priority: item.priority,
+                timeline: item.timeline
               })
               
               if (endDate > orderMaxEndDate) {
@@ -959,7 +961,8 @@ export default function Home() {
                 action: item.action,
                 startDate,
                 endDate,
-                priority: item.priority
+                priority: item.priority,
+                timeline: item.timeline
               })
               
               if (endDate > orderMaxEndDate) {
@@ -1032,7 +1035,8 @@ export default function Home() {
               action: item.action,
               startDate,
               endDate,
-              priority: item.priority
+              priority: item.priority,
+              timeline: item.timeline
             })
             
             if (endDate > orderMaxEndDate) {
