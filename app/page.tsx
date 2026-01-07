@@ -2003,27 +2003,71 @@ export default function Home() {
 
             <Card>
               <CardHeader>
-                <CardTitle>성공 사례: 효과적인 내부거래 관리</CardTitle>
+                <CardTitle>실제 기업 사례: 내부거래 관리 모범 사례</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <div className="p-4 border rounded-lg">
-                    <h4 className="font-semibold mb-2">자동화를 통한 효율성 향상</h4>
-                    <p className="text-sm text-muted-foreground">
-                      내부거래 대사 자동화를 통해 월별 대사 시간을 80% 단축하고 오류율을 95% 감소
+                  <div className="p-4 border rounded-lg bg-muted/30">
+                    <h4 className="font-semibold mb-2 text-primary">삼성그룹: SAP 기반 통합 내부거래 관리 시스템</h4>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      <strong>핵심 전략:</strong> SAP Group Reporting을 활용한 전 계열사 통합 내부거래 관리
                     </p>
+                    <ul className="text-sm text-muted-foreground space-y-1 ml-4 list-disc">
+                      <li>150개 이상 계열사의 내부거래를 SAP IC 계정으로 통합 관리</li>
+                      <li>월별 자동 대사 프로세스로 대사 시간 70% 단축</li>
+                      <li>실시간 연결제거 자동화로 분기 결산 기간 단축</li>
+                      <li>중앙화된 내부거래 정책으로 처리 일관성 확보</li>
+                    </ul>
                   </div>
-                  <div className="p-4 border rounded-lg">
-                    <h4 className="font-semibold mb-2">실시간 모니터링으로 문제 조기 발견</h4>
-                    <p className="text-sm text-muted-foreground">
-                      실시간 대시보드를 통해 미대사 항목을 즉시 파악하고 조치하여 분기 말 미대사 항목을 90% 감소
+
+                  <div className="p-4 border rounded-lg bg-muted/30">
+                    <h4 className="font-semibold mb-2 text-primary">LG그룹: 자동화 기반 효율성 향상</h4>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      <strong>핵심 전략:</strong> 내부거래 대사 자동화 및 실시간 모니터링 체계 구축
                     </p>
+                    <ul className="text-sm text-muted-foreground space-y-1 ml-4 list-disc">
+                      <li>내부거래 대사 자동화 시스템으로 월별 대사 시간 80% 단축</li>
+                      <li>실시간 대시보드를 통한 미대사 항목 조기 발견 및 해결</li>
+                      <li>분기 말 미대사 항목 90% 감소 달성</li>
+                      <li>거래 통화 기준 관리로 환율 차이 명확화</li>
+                    </ul>
                   </div>
-                  <div className="p-4 border rounded-lg">
-                    <h4 className="font-semibold mb-2">통합 정책으로 일관성 확보</h4>
-                    <p className="text-sm text-muted-foreground">
-                      그룹 전반의 통일된 내부거래 정책 수립으로 회계 처리 일관성 확보 및 연결제거 프로세스 단순화
+
+                  <div className="p-4 border rounded-lg bg-muted/30">
+                    <h4 className="font-semibold mb-2 text-primary">SK그룹: 통합 정책 및 시스템 구축</h4>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      <strong>핵심 전략:</strong> 그룹 전반의 통일된 내부거래 정책 및 중앙화된 관리 시스템
                     </p>
+                    <ul className="text-sm text-muted-foreground space-y-1 ml-4 list-disc">
+                      <li>내부거래 승인 기준 및 가격 정책을 그룹 차원에서 표준화</li>
+                      <li>모든 계열사의 내부거래를 중앙 시스템에서 일괄 모니터링</li>
+                      <li>정기적인 내부거래 감사로 공정거래법 위반 리스크 사전 차단</li>
+                      <li>연결제거 프로세스 자동화로 재무제표 신뢰성 향상</li>
+                    </ul>
+                  </div>
+
+                  <div className="p-4 border rounded-lg bg-muted/30">
+                    <h4 className="font-semibold mb-2 text-primary">현대자동차그룹: 해외 법인 내부거래 관리 고도화</h4>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      <strong>핵심 전략:</strong> 거래 통화 기준 관리 및 다중 환율 처리 체계
+                    </p>
+                    <ul className="text-sm text-muted-foreground space-y-1 ml-4 list-disc">
+                      <li>해외 자회사 거래 시 거래 통화(TC) 기준 대사 원칙 수립</li>
+                      <li>거래 통화 → 기능 통화 → 그룹 통화 환율 차이 명확히 분리</li>
+                      <li>월별 자동 대사로 내부거래 일치율 95% 이상 유지</li>
+                      <li>환율 변환 차이를 별도 계정으로 관리하여 내부거래와 분리</li>
+                    </ul>
+                  </div>
+
+                  <div className="p-4 border rounded-lg bg-blue-50 dark:bg-blue-950">
+                    <h4 className="font-semibold mb-2 text-blue-700 dark:text-blue-300">공통 성공 요인</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1 ml-4 list-disc">
+                      <li><strong>중앙화된 시스템:</strong> SAP 등 ERP 시스템을 통한 통합 관리</li>
+                      <li><strong>자동화 프로세스:</strong> 대사, 연결제거 등 반복 작업 자동화</li>
+                      <li><strong>표준화된 정책:</strong> 그룹 전반의 통일된 내부거래 정책</li>
+                      <li><strong>실시간 모니터링:</strong> 대시보드를 통한 지속적 추적 및 관리</li>
+                      <li><strong>명확한 역할 분담:</strong> 법인별 담당자 지정 및 책임 명확화</li>
+                    </ul>
                   </div>
                 </div>
               </CardContent>
