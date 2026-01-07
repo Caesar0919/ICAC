@@ -586,34 +586,10 @@ export default function Home() {
       timeline: "1주"
     },
     {
-      id: "22",
-      area: "운영 관리",
-      action: "미대사 항목 추적 시스템 운영",
-      description: "미대사 항목 자동 추적 및 현황 모니터링 시스템 운영",
-      priority: "high",
-      timeline: "2주"
-    },
-    {
-      id: "23",
-      area: "운영 관리",
-      action: "미대사 항목 해소 프로세스 구축",
-      description: "미대사 항목 발견 시 즉시 해소 프로세스 및 책임자 지정",
-      priority: "high",
-      timeline: "1주"
-    },
-    {
       id: "24",
       area: "운영 관리",
       action: "내부거래 정산 일정 관리 체계 구축",
       description: "내부거래 정산 일정 수립 및 준수 관리 체계 구축",
-      priority: "medium",
-      timeline: "1주"
-    },
-    {
-      id: "25",
-      area: "운영 관리",
-      action: "내부거래 정산 방법 정의",
-      description: "정산 주기, 방법(계좌이체/상계 등) 및 절차 정의",
       priority: "medium",
       timeline: "1주"
     },
@@ -978,10 +954,24 @@ export default function Home() {
             // ID "46" (IC 계정 도입 계획 수립)은 4월 1주차부터 시작
             // ID "47", "50"는 4월 3주차부터 시작
             // ID "44"는 6월 4주차부터 시작
+            // ID "20", "21", "24", "26"는 3월 5주차부터 시작
+            // ID "27", "28", "29", "30", "31", "32", "33"는 3월 3주차부터 시작 (회계 처리)
             // ID "48", "49", "51", "52"는 6월 2주차부터 시작
             // ID "53", "54", "55"는 7월 1주차부터 시작
             let itemStartDate = new Date(orderStartDate)
-            if (["13", "16"].includes(item.id)) {
+            if (["27", "28", "29", "30", "31", "32", "33"].includes(item.id)) {
+              // 3월의 첫 번째 주를 찾고, 2주를 더한 것이 3월 3주차
+              const marchFirst = new Date(2024, 2, 1) // 3월 1일 (월은 0부터 시작)
+              const marchFirstWeek = startOfWeek(marchFirst, { weekStartsOn: 1 })
+              // 3월 1주차에서 2주를 더한 것이 3월 3주차
+              itemStartDate = addWeeks(marchFirstWeek, 2)
+            } else if (["20", "21", "24", "26"].includes(item.id)) {
+              // 3월의 첫 번째 주를 찾고, 4주를 더한 것이 3월 5주차
+              const marchFirst = new Date(2024, 2, 1) // 3월 1일 (월은 0부터 시작)
+              const marchFirstWeek = startOfWeek(marchFirst, { weekStartsOn: 1 })
+              // 3월 1주차에서 4주를 더한 것이 3월 5주차
+              itemStartDate = addWeeks(marchFirstWeek, 4)
+            } else if (["13", "16"].includes(item.id)) {
               // 4월의 첫 번째 주를 찾고, 3주를 더한 것이 4월 4주차
               const aprilFirst = new Date(2024, 3, 1) // 4월 1일 (월은 0부터 시작)
               const aprilFirstWeek = startOfWeek(aprilFirst, { weekStartsOn: 1 })
@@ -1856,7 +1846,20 @@ export default function Home() {
                           acc[item.area].push(item)
                           return acc
                         }, {} as { [key: string]: GanttItem[] })
-                      ).map(([area, items]) => (
+                      )
+                      .sort(([areaA], [areaB]) => {
+                        const displayOrder: { [key: string]: number } = {
+                          "정책 및 절차": 1,
+                          "회계 처리": 2,
+                          "운영 관리": 3,
+                          "리스크 관리": 4,
+                          "보고 및 모니터링": 5,
+                          "시스템 업그레이드": 6,
+                          "SAP IC 계정 도입": 7
+                        }
+                        return (displayOrder[areaA] || 99) - (displayOrder[areaB] || 99)
+                      })
+                      .map(([area, items]) => (
                         <div key={area} className="space-y-0.5">
                           {/* 영역 헤더 */}
                           <div className="flex border-b">
